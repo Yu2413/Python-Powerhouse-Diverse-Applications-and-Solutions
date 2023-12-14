@@ -31,7 +31,7 @@ def plot_moving_average(df, symbol, window=52):
     plt.figure(figsize=(12, 6))
     plt.plot(df['Close'], label='Close Price')
     plt.plot(df['Moving Average'], label='Moving Average')
-    plt.title(f'{symbol} Stock Price Over 5 Years')
+    plt.title(f'{symbol} Stock Price Over 23 Years')
     plt.xlabel('Date')
     plt.ylabel('Price (USD)')
     plt.legend()
