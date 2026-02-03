@@ -1,0 +1,22 @@
+from qgis.core import QgsVectorLayer, QgsProject
+
+csv_path = r"C:/Users/Yu241/OneDrive/Desktop/stores.csv"
+layer_name = "stores_points"
+
+uri = (
+    f"file:///{csv_path}"
+    f"?delimiter=,"
+    f"&xField=lon&yField=lat"
+    f"&crs=EPSG:4326"
+)
+
+layer = QgsVectorLayer(uri, layer_name, "delimitedtext")
+if not layer.isValid():
+    raise Exception("CSV layer failed to load. Check the path and that lon/lat fields exist.")
+
+QgsProject.instance().addMapLayer(layer)
+print("Loaded:", layer.name(), "features:", layer.featureCount())
+
+canvas = iface.mapCanvas()
+canvas.setExtent(layer.extent())
+canvas.refresh()

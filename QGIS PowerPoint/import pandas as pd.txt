@@ -1,0 +1,24 @@
+import pandas as pd
+from pathlib import Path
+
+# Create a sample CSV that matches the PyQGIS code (needs lon and lat columns)
+data = [
+    {"store_id": 1, "store_name": "Downtown Market", "lon": -82.9988, "lat": 39.9612, "city": "Columbus", "state": "OH"},
+    {"store_id": 2, "store_name": "Northside Grocery", "lon": -83.0080, "lat": 40.1000, "city": "Lewis Center", "state": "OH"},
+    {"store_id": 3, "store_name": "Riverside Shop", "lon": -82.9990, "lat": 39.9800, "city": "Columbus", "state": "OH"},
+    {"store_id": 4, "store_name": "West Mall Store", "lon": -83.1200, "lat": 39.9600, "city": "Hilliard", "state": "OH"},
+    {"store_id": 5, "store_name": "East Plaza", "lon": -82.8800, "lat": 39.9550, "city": "Columbus", "state": "OH"},
+    {"store_id": 6, "store_name": "Airport Convenience", "lon": -82.8919, "lat": 39.9999, "city": "Columbus", "state": "OH"},
+    {"store_id": 7, "store_name": "Campus Corner", "lon": -83.0089, "lat": 39.9997, "city": "Columbus", "state": "OH"},
+    {"store_id": 8, "store_name": "Suburban Mart", "lon": -82.9780, "lat": 40.0400, "city": "Worthington", "state": "OH"},
+    {"store_id": 9, "store_name": "Uptown Foods", "lon": -83.0470, "lat": 40.0330, "city": "Dublin", "state": "OH"},
+    {"store_id": 10, "store_name": "Southside Stop", "lon": -83.0200, "lat": 39.9000, "city": "Grove City", "state": "OH"},
+]
+
+df = pd.DataFrame(data)
+
+out_dir = Path("C:/Users/Yu241/OneDrive/Desktop")
+out_path = out_dir / "stores.csv"
+df.to_csv(out_path, index=False)
+
+out_path, df.head()
